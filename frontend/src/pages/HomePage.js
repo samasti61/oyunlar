@@ -195,6 +195,15 @@ const HomePage = () => {
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.1 }}
+                  onClick={() => {
+                    setSelectedCategory('all');
+                    setTimeout(() => {
+                      const gameReviews = reviews.filter(r => r.game_name === game.game_name);
+                      if (gameReviews.length > 0) {
+                        navigate(`/review/${gameReviews[0].id}`);
+                      }
+                    }, 100);
+                  }}
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-2xl font-bold">
