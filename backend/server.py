@@ -43,6 +43,7 @@ class User(BaseModel):
     email: EmailStr
     username: str
     bio: Optional[str] = None
+    avatar_url: Optional[str] = None
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class UserCreate(BaseModel):
