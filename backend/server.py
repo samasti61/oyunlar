@@ -368,6 +368,27 @@ async def get_user_profile(user_id: str):
     
     return User(**user)
 
+@api_router.put("/users/me", response_model=User)
+async def update_profile(user_data: UserUpdate, current_user: User = Depends(get_current_user)):
+    update_dict = {k: v for k, v in user_data.model_dump().items() if v is not None}
+    
+    if not update_dict:
+        return current_user
+    
+    # Check if username already exists
+    if 'username' in update_dict:
+        existing = await db.users.find_one({"username": update_dict['username'], "id": {"$ne": current_user.id}})
+        if existing:
+            raise HTTPException(status_code=400, detail="Username already taken")
+    
+    await db.users.update_one({"id": current_user.id}, {"$set": update_dict})
+    
+    updated_user = await db.users.find_one({"id": current_user.id}, {"_id": 0, "password": 0})
+    if isinstance(updated_user.get('created_at'), str):
+        updated_user['created_at'] = datetime.fromisoformat(updated_user['created_at'])
+    
+    return User(**updated_user)
+
 @api_router.get("/users/{user_id}/reviews", response_model=List[Review])
 async def get_user_reviews(user_id: str, skip: int = 0, limit: int = 20):
     reviews = await db.reviews.find({"author_id": user_id}, {"_id": 0}).sort("created_at", -1).skip(skip).limit(limit).to_list(limit)
