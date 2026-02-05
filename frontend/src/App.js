@@ -68,6 +68,7 @@ function App() {
           <div className="App">
             <AppRoutes />
             <Toaster position="top-center" />
+            <CookieConsent />
           </div>
         </BrowserRouter>
       </AuthProvider>
