@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 import { Button } from '@/components/ui/button';
 import { SearchBar } from './SearchBar';
-import { PenSquare, LogOut, User } from 'lucide-react';
+import { PenSquare, LogOut, User, Moon, Sun } from 'lucide-react';
 
 export const Navbar = () => {
   const { user, logout } = useAuth();
+  const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleLogout = () => {
