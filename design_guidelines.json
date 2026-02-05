@@ -1,0 +1,133 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "E1_Creative_Writer",
+      "core_concept": "The Digital Parchment",
+      "vibe": "Editorial, Intellectual, Community-driven, Calm",
+      "principles": [
+        "Content is King: Typography is the primary interface.",
+        "Warmth over Sterility: Use warm grays and off-whites, not clinical blue-whites.",
+        "Asymmetry in Discovery: The feed should feel like a gallery, not a spreadsheet.",
+        "Focus in Consumption: Reading views must be distraction-free."
+      ]
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Libre Baskerville, serif",
+        "body": "Public Sans, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "imports": [
+        "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      ],
+      "usage": {
+        "h1": "font-serif font-bold text-4xl md:text-5xl tracking-tight text-foreground",
+        "h2": "font-serif font-bold text-3xl tracking-tight text-foreground/90",
+        "h3": "font-serif font-bold text-2xl text-foreground/90",
+        "body_large": "font-sans text-lg leading-relaxed text-foreground/80",
+        "body_default": "font-sans text-base leading-relaxed text-foreground/80",
+        "caption": "font-sans text-sm text-muted-foreground uppercase tracking-wider",
+        "code": "font-mono text-sm bg-muted px-1 py-0.5 rounded text-primary"
+      }
+    },
+    "colors": {
+      "palette": {
+        "light": {
+          "background": "#F9F9F7",
+          "foreground": "#1A1A1A",
+          "card": "#FFFFFF",
+          "card_foreground": "#1A1A1A",
+          "primary": "#4338CA",
+          "primary_foreground": "#FFFFFF",
+          "secondary": "#F3F4F6",
+          "secondary_foreground": "#1F2937",
+          "muted": "#F3F4F6",
+          "muted_foreground": "#6B7280",
+          "accent": "#F59E0B",
+          "accent_foreground": "#FFFFFF",
+          "border": "#E5E7EB",
+          "input": "#E5E7EB",
+          "ring": "#4338CA"
+        },
+        "dark": {
+          "background": "#0F172A",
+          "foreground": "#F8FAFC",
+          "card": "#1E293B",
+          "card_foreground": "#F8FAFC",
+          "primary": "#818CF8",
+          "primary_foreground": "#0F172A",
+          "secondary": "#334155",
+          "secondary_foreground": "#F8FAFC",
+          "muted": "#334155",
+          "muted_foreground": "#94A3B8",
+          "accent": "#FBBF24",
+          "accent_foreground": "#0F172A",
+          "border": "#334155",
+          "input": "#334155",
+          "ring": "#818CF8"
+        }
+      },
+      "tailwind_config_extension": {
+        "colors": {
+          "paper": "#F9F9F7",
+          "ink": "#1A1A1A"
+        }
+      }
+    },
+    "visual_enhancers": {
+      "radius": "0.75rem",
+      "shadows": {
+        "card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "hover": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1)"
+      },
+      "texture": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")",
+      "glass": "bg-white/70 backdrop-blur-md border border-white/20 shadow-sm"
+    },
+    "layout_strategies": {
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      "reading_column": "max-w-2xl mx-auto",
+      "feed_grid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+      "bento_grid": "grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]"
+    },
+    "components": {
+      "buttons": {
+        "style": "rounded-full font-medium transition-all active:scale-95",
+        "primary": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg",
+        "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        "ghost": "hover:bg-muted hover:text-foreground"
+      },
+      "cards": {
+        "style": "bg-card text-card-foreground rounded-xl border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 group overflow-hidden"
+      },
+      "inputs": {
+        "style": "rounded-lg border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+      }
+    },
+    "assets": {
+      "images": {
+        "hero_fantasy": "https://images.unsplash.com/photo-1760693052314-d71e8b493c84?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "hero_scifi": "https://images.unsplash.com/photo-1761947951850-2468e28ffecc?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "abstract_bg": "https://images.unsplash.com/photo-1716363013751-78dc48b0403d?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "creative_flower": "https://images.unsplash.com/photo-1649355019584-bc0112fda698?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "geometric_shapes": "https://images.unsplash.com/photo-1767482712650-8e52fbf8ca0d?crop=entropy&cs=srgb&fm=jpg&q=85"
+      },
+      "icons": "lucide-react"
+    },
+    "instructions_to_main_agent": [
+      "1. INSTALL FONTS: Add the Google Fonts link to the <head> of public/index.html immediately.",
+      "2. CONFIGURE TAILWIND: Update tailwind.config.js to extend the font family with 'Libre Baskerville' (serif) and 'Public Sans' (sans).",
+      "3. APPLY THEME: Update index.css with the provided CSS variables for light and dark modes. Ensure the 'paper' background color is used for the body in light mode.",
+      "4. COMPONENT OVERRIDES: When using Shadcn components, apply the 'rounded-xl' and 'rounded-full' styles as specified. Do not use default sharp corners.",
+      "5. LAYOUT: For the 'Review/Story Detail' page, use the 'reading_column' width (max-w-2xl) to ensure optimal line length for reading.",
+      "6. MICRO-INTERACTIONS: Add 'active:scale-95' to all interactive elements (buttons, cards) for a tactile feel.",
+      "7. TESTING: Add 'data-testid' to all interactive elements (buttons, inputs, links) using kebab-case (e.g., 'submit-review-btn')."
+    ],
+    "universal_guidelines": [
+      "Avoid 'AI Slop': Do not use generic centered layouts. Use asymmetry.",
+      "No Gradients on Text: Keep text solid and high-contrast.",
+      "Glassmorphism: Use it sparingly (only for sticky headers or overlays), not for main content cards.",
+      "Spacing: Use 'gap-6' or 'gap-8' for grids. Don't cram content.",
+      "Motion: Use 'framer-motion' for page transitions if possible, or simple CSS transitions for hover states."
+    ]
+  }
+}
