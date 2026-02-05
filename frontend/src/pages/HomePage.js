@@ -39,10 +39,13 @@ const HomePage = () => {
       const url = selectedCategory === 'all' 
         ? `${API}/reviews`
         : `${API}/reviews?category=${selectedCategory}`;
+      console.log('Fetching reviews from:', url);
       const response = await axios.get(url);
+      console.log('Reviews fetched:', response.data);
       setReviews(response.data);
     } catch (error) {
       console.error('Failed to fetch reviews:', error);
+      setReviews([]);
     } finally {
       setLoading(false);
     }
