@@ -39,11 +39,11 @@ code {
     .dark {
         --background: 222 47% 11%;
         --foreground: 210 40% 98%;
-        --card: 222 47% 15%;
+        --card: 217 33% 17%;
         --card-foreground: 210 40% 98%;
         --popover: 222 47% 15%;
         --popover-foreground: 210 40% 98%;
-        --primary: 238 83% 75%;
+        --primary: 238 75% 65%;
         --primary-foreground: 222 47% 11%;
         --secondary: 217 33% 26%;
         --secondary-foreground: 210 40% 98%;
@@ -51,11 +51,11 @@ code {
         --muted-foreground: 215 20% 65%;
         --accent: 43 96% 56%;
         --accent-foreground: 222 47% 11%;
-        --destructive: 0 63% 31%;
+        --destructive: 0 62% 50%;
         --destructive-foreground: 210 40% 98%;
         --border: 217 33% 26%;
         --input: 217 33% 26%;
-        --ring: 238 83% 75%;
+        --ring: 238 75% 65%;
     }
 }
 
