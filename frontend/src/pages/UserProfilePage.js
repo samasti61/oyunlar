@@ -92,19 +92,19 @@ const UserProfilePage = () => {
   const avatarUrl = user.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.username)}&size=200&background=4338CA&color=fff`;
 
   return (
-    <div className=\"min-h-screen bg-gradient-to-b from-paper to-white\">
+    <div "className="min-h-screen bg-gradient-to-b from-paper to-white\">
       <Navbar />
       
-      <div className=\"max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12\">
+      <div "className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12\">
         {/* Profile Header */}
-        <Card className=\"rounded-2xl shadow-lg mb-8\">
-          <CardContent className=\"pt-8 pb-6\">
-            <div className=\"flex flex-col md:flex-row items-center md:items-start gap-6\">
-              <div className=\"relative\">
+        <Card "className="rounded-2xl shadow-lg mb-8\">
+          <CardContent "className="pt-8 pb-6\">
+            <div "className="flex flex-col md:flex-row items-center md:items-start gap-6\">
+              <div "className="relative\">
                 <img
                   src={avatarUrl}
                   alt={user.username}
-                  className=\"w-32 h-32 rounded-full object-cover border-4 border-primary/20\"
+                  "className="w-32 h-32 rounded-full object-cover border-4 border-primary/20\"
                   onError={(e) => {
                     e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.username)}&size=200&background=4338CA&color=fff`;
                   }}
@@ -114,18 +114,18 @@ const UserProfilePage = () => {
                     <DialogTrigger asChild>
                       <Button
                         size=\"sm\"
-                        className=\"absolute bottom-0 right-0 rounded-full w-10 h-10 p-0 shadow-lg\"
+                        "className="absolute bottom-0 right-0 rounded-full w-10 h-10 p-0 shadow-lg\"
                         data-testid=\"edit-profile-btn\"
                       >
-                        <Edit className=\"w-4 h-4\" />
+                        <Edit "className="w-4 h-4\" />
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className=\"sm:max-w-md\">
+                    <DialogContent "className="sm:max-w-md\">
                       <DialogHeader>
                         <DialogTitle>Profili Düzenle</DialogTitle>
                       </DialogHeader>
-                      <form onSubmit={handleUpdateProfile} className=\"space-y-4\">
-                        <div className=\"space-y-2\">
+                      <form onSubmit={handleUpdateProfile} "className="space-y-4\">
+                        <div "className="space-y-2\">
                           <Label htmlFor=\"username\">Kullanıcı Adı</Label>
                           <Input
                             id=\"username\"
@@ -135,7 +135,7 @@ const UserProfilePage = () => {
                             data-testid=\"edit-username-input\"
                           />
                         </div>
-                        <div className=\"space-y-2\">
+                        <div "className="space-y-2\">
                           <Label htmlFor=\"bio\">Biyografi</Label>
                           <Textarea
                             id=\"bio\"
@@ -146,7 +146,7 @@ const UserProfilePage = () => {
                             data-testid=\"edit-bio-input\"
                           />
                         </div>
-                        <div className=\"space-y-2\">
+                        <div "className="space-y-2\">
                           <Label htmlFor=\"avatar\">Profil Fotoğrafı URL</Label>
                           <Input
                             id=\"avatar\"
@@ -155,13 +155,13 @@ const UserProfilePage = () => {
                             placeholder=\"https://example.com/avatar.jpg\"
                             data-testid=\"edit-avatar-input\"
                           />
-                          <p className=\"text-xs text-muted-foreground\">
+                          <p "className="text-xs text-muted-foreground\">
                             Bir resim URL'si girin veya boş bırakın
                           </p>
                         </div>
                         <Button
                           type=\"submit\"
-                          className=\"w-full rounded-full\"
+                          "className="w-full rounded-full\"
                           disabled={updating}
                           data-testid=\"save-profile-btn\"
                         >
@@ -173,22 +173,22 @@ const UserProfilePage = () => {
                 )}
               </div>
               
-              <div className=\"flex-1 text-center md:text-left\">
-                <h1 className=\"font-serif font-bold text-4xl text-foreground mb-2\">
+              <div "className="flex-1 text-center md:text-left\">
+                <h1 "className="font-serif font-bold text-4xl text-foreground mb-2\">
                   {user.username}
                 </h1>
-                <p className=\"text-muted-foreground mb-4\">
+                <p "className="text-muted-foreground mb-4\">
                   Üye olma tarihi: {format(new Date(user.created_at), 'dd MMMM yyyy', { locale: tr })}
                 </p>
                 {user.bio && (
-                  <p className=\"text-foreground/80 leading-relaxed max-w-2xl\">
+                  <p "className="text-foreground/80 leading-relaxed max-w-2xl\">
                     {user.bio}
                   </p>
                 )}
-                <div className=\"mt-4 flex items-center justify-center md:justify-start gap-4 text-sm\">
-                  <div className=\"flex items-center gap-1\">
-                    <span className=\"font-bold text-2xl text-foreground\">{reviews.length}</span>
-                    <span className=\"text-muted-foreground\">İnceleme</span>
+                <div "className="mt-4 flex items-center justify-center md:justify-start gap-4 text-sm\">
+                  <div "className="flex items-center gap-1\">
+                    <span "className="font-bold text-2xl text-foreground\">{reviews.length}</span>
+                    <span "className="text-muted-foreground\">İnceleme</span>
                   </div>
                 </div>
               </div>
@@ -198,51 +198,51 @@ const UserProfilePage = () => {
 
         {/* User Reviews */}
         <div>
-          <h2 className=\"font-serif font-bold text-3xl text-foreground mb-6\">
+          <h2 "className="font-serif font-bold text-3xl text-foreground mb-6\">
             İncelemeler
           </h2>
           
           {reviews.length === 0 ? (
-            <p className=\"text-center text-muted-foreground py-12\">
+            <p "className="text-center text-muted-foreground py-12\">
               Henüz inceleme yok.
             </p>
           ) : (
-            <div className=\"space-y-6\">
+            <div "className="space-y-6\">
               {reviews.map((review) => (
                 <Card
                   key={review.id}
-                  className=\"bg-card rounded-2xl border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden cursor-pointer active:scale-[0.99]\"
+                  "className="bg-card rounded-2xl border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden cursor-pointer active:scale-[0.99]\"
                   onClick={() => navigate(`/review/${review.id}`)}
                   data-testid={`profile-review-${review.id}`}
                 >
-                  <CardContent className=\"p-6\">
-                    <div className=\"flex flex-col md:flex-row gap-4\">
-                      <div className=\"flex-1 min-w-0\">
-                        <div className=\"flex items-center gap-3 mb-3\">
-                          <span className=\"px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider rounded-full\">
+                  <CardContent "className="p-6\">
+                    <div "className="flex flex-col md:flex-row gap-4\">
+                      <div "className="flex-1 min-w-0\">
+                        <div "className="flex items-center gap-3 mb-3\">
+                          <span "className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider rounded-full\">
                             {review.category}
                           </span>
-                          <div className=\"flex items-center gap-1 text-xs text-muted-foreground\">
-                            <Calendar className=\"w-3 h-3\" />
+                          <div "className="flex items-center gap-1 text-xs text-muted-foreground\">
+                            <Calendar "className="w-3 h-3\" />
                             {format(new Date(review.created_at), 'dd MMM yyyy', { locale: tr })}
                           </div>
                         </div>
-                        <h3 className=\"font-serif font-bold text-2xl text-foreground/90 mb-2 group-hover:text-primary transition-colors\">
+                        <h3 "className="font-serif font-bold text-2xl text-foreground/90 mb-2 group-hover:text-primary transition-colors\">
                           {review.title}
                         </h3>
-                        <p className=\"text-base text-primary font-medium mb-3\">{review.game_name}</p>
-                        <p className=\"text-foreground/70 line-clamp-2 leading-relaxed\">
+                        <p "className="text-base text-primary font-medium mb-3\">{review.game_name}</p>
+                        <p "className="text-foreground/70 line-clamp-2 leading-relaxed\">
                           {review.content}
                         </p>
                       </div>
-                      <div className=\"flex md:flex-col items-center md:items-end justify-start gap-4\">
-                        <div className=\"flex items-center gap-1 text-sm\">
-                          <Heart className=\"w-5 h-5 text-red-500\" />
-                          <span className=\"font-semibold\">{review.likes_count}</span>
+                      <div "className="flex md:flex-col items-center md:items-end justify-start gap-4\">
+                        <div "className="flex items-center gap-1 text-sm\">
+                          <Heart "className="w-5 h-5 text-red-500\" />
+                          <span "className="font-semibold\">{review.likes_count}</span>
                         </div>
-                        <div className=\"flex items-center gap-1 text-sm\">
-                          <MessageCircle className=\"w-5 h-5 text-blue-500\" />
-                          <span className=\"font-semibold\">{review.comments_count}</span>
+                        <div "className="flex items-center gap-1 text-sm\">
+                          <MessageCircle "className="w-5 h-5 text-blue-500\" />
+                          <span "className="font-semibold\">{review.comments_count}</span>
                         </div>
                       </div>
                     </div>
