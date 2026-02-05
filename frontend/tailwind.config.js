@@ -18,8 +18,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        serif: ['Libre Baskerville', 'serif'],
-        sans: ['Public Sans', 'sans-serif'],
+        serif: ['Space Grotesk', 'serif'],
+        sans: ['Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
