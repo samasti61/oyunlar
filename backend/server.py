@@ -73,6 +73,8 @@ class Review(BaseModel):
     game_name: str
     category: str
     tags: List[str] = []
+    rating: Optional[int] = None  # 1-10
+    cover_image: Optional[str] = None
     author_id: str
     author_username: str
     collaborators: List[str] = []  # user IDs
