@@ -189,7 +189,7 @@ const HomePage = () => {
               {popularGames.map((game, idx) => (
                 <motion.div
                   key={game.game_name}
-                  className="min-w-[280px] bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 dark:from-yellow-600 dark:via-orange-600 dark:to-red-700 rounded-2xl p-4 text-white shadow-lg cursor-pointer"
+                  className="min-w-[280px] bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 dark:from-yellow-600 dark:via-orange-600 dark:to-red-700 rounded-2xl p-4 text-white shadow-lg cursor-pointer overflow-hidden"
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, x: -50 }}
@@ -205,6 +205,16 @@ const HomePage = () => {
                     }, 100);
                   }}
                 >
+                  {game.cover_image && (
+                    <div className="w-full h-32 rounded-xl overflow-hidden mb-3">
+                      <img 
+                        src={game.cover_image} 
+                        alt={game.game_name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => { e.target.style.display = 'none'; }}
+                      />
+                    </div>
+                  )}
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-2xl font-bold">
                       #{idx + 1}
