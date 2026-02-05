@@ -434,9 +434,60 @@ async def get_categories():
             "Spor",
             "Yarış",
             "Bulmaca",
+            "FPS",
+            "MOBA",
+            "Battle Royale",
+            "Platform",
+            "Metroidvania",
+            "Rogue-like",
+            "Sandbox",
+            "Survival",
+            "Indie",
+            "MMORPG",
+            "Fighting",
+            "Rhythm",
+            "Visual Novel",
             "Diğer"
         ]
     }
+
+# Search
+@api_router.get("/search")
+async def search(q: str, skip: int = 0, limit: int = 20):
+    if not q or len(q.strip()) < 2:
+        return {"reviews": [], "users": []}
+    
+    query_lower = q.lower().strip()
+    
+    # Search reviews by title or game name
+    reviews = await db.reviews.find(
+        {
+            "$or": [
+                {"title": {"$regex": query_lower, "$options": "i"}},
+                {"game_name": {"$regex": query_lower, "$options": "i"}},
+                {"author_username": {"$regex": query_lower, "$options": "i"}}
+            ]
+        },
+        {"_id": 0}
+    ).sort("created_at", -1).skip(skip).limit(limit).to_list(limit)
+    
+    for review in reviews:
+        if isinstance(review.get('created_at'), str):
+            review['created_at'] = datetime.fromisoformat(review['created_at'])
+        if isinstance(review.get('updated_at'), str):
+            review['updated_at'] = datetime.fromisoformat(review['updated_at'])
+    
+    # Search users by username
+    users = await db.users.find(
+        {"username": {"$regex": query_lower, "$options": "i"}},
+        {"_id": 0, "password": 0}
+    ).limit(10).to_list(10)
+    
+    for user in users:
+        if isinstance(user.get('created_at'), str):
+            user['created_at'] = datetime.fromisoformat(user['created_at'])
+    
+    return {"reviews": reviews, "users": users}
 
 # Include router
 app.include_router(api_router)
